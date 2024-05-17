@@ -1,4 +1,6 @@
-# Embed Images in 🤗 Dataset
+# Image Regression
+
+by [Tony Assi](https://www.tonyassi.com/)
 Generates image embeddings for a 🤗 Dataset then uploads it to the 🤗 Hub
 
 ## Installation
