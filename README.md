@@ -1,7 +1,8 @@
 # Image Regression
 
 by [Tony Assi](https://www.tonyassi.com/)
-Generates image embeddings for a 🤗 Dataset then uploads it to the 🤗 Hub
+
+Image Regression model training and inference. Built with 🤗 and PyTorch.
 
 ## Installation
 ```bash
