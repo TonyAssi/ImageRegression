@@ -13,6 +13,9 @@ pip install -r requirements.txt
 
 The model trainer takes a 🤗 dataset id as input so your dataset must be uploaded to 🤗. It should have a column of images and a column of values (floats or ints). Check out [Create an image dataset](https://huggingface.co/docs/datasets/en/image_dataset) if you need help creating a 🤗 dataset. Your dataset should look like [tonyassi/sales1](https://huggingface.co/datasets/tonyassi/sales1) (the values column can be named whatever you'd like).
 
+<img width="868" alt="Screenshot 2024-05-18 at 12 11 32 PM" src="https://github.com/TonyAssi/ImageRegression/assets/42156881/06ed6954-de6f-45ab-84a3-57781d39722b">
+
+
 ## Usage
 
 ### Import 
