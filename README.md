@@ -9,6 +9,10 @@ Image Regression model training and inference. Built with 🤗 and PyTorch.
 pip install -r requirements.txt
 ```
 
+## Dataset
+
+The model trained takes a 🤗 dataset id as input so your dataset must be uploaded to 🤗. It should have a column of images and a column of values (floats or ints). Check out [Create an image dataset](https://huggingface.co/docs/datasets/en/image_dataset) if you need help creating a 🤗 dataset. Your dataset should look like [tonyassi/sales1](https://huggingface.co/datasets/tonyassi/sales1)--but the values column can be named whatever you'd like.
+
 ## Usage
 
 ### Import 
