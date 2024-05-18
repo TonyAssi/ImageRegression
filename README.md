@@ -20,7 +20,7 @@ from ImageRegression import train_model, upload_model, predict
 
 ### Train Model
 - **dataset_id** 🤗 dataset id (see [Dataset](https://github.com/TonyAssi/ImageRegression?tab=readme-ov-file#dataset))
-- **value_column_name** column name of the dataset. these are the prediction values
+- **value_column_name** column name of prediction values in dataset
 - **test_split** test split of the train/test split
 - **output_dir** the directory where the checkpoints will be saved
 - **num_train_epochs** training epochs
