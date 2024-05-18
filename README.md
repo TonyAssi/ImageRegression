@@ -16,7 +16,7 @@ pip install -r requirements.txt
 from ImageRegression import train_model, upload_model, predict
 ```
 
-### Train model
+### Train Model
 - **dataset_id** 🤗 dataset id
 - **value_column_name** column name of the dataset. these are the prediction values
 - **test_split** test split of the train/test split
@@ -31,6 +31,15 @@ train_model(dataset_id='tonyassi/sales1',
             num_train_epochs=10,
             learning_rate=1e-4)
 
+```
+The trainer will save the checkpoints in the output_dir location. The "model.safetensors" are the trained weights you'll use for inference (predicton).
+
+### Upload Model
+This function will upload your model to the 🤗 Hub, which will be useful for inference.
+```python
+upload_model(model_id='sales-prediction1',
+             token='YOUR_HF_TOKEN',
+             checkpoint_dir='./results/checkpoint-940')
 ```
 
 ## Dataset
