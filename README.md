@@ -43,6 +43,10 @@ upload_model(model_id='sales-prediction1',
              token='YOUR_HF_TOKEN',
              checkpoint_dir='./results/checkpoint-940')
 ```
+Go to your 🤗 profile to find your uploaded model, it should look similar to [tonyassi/sales-prediction1](https://huggingface.co/tonyassi/sales-prediction1).
+
+### Inference (Prediction)
+You can use your newly trained model for inference. There are two ways to do it: the predict function provided by this repo or using PyTorch itself.
 
 ## Dataset
 
