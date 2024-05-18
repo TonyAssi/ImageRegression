@@ -11,12 +11,12 @@ pip install -r requirements.txt
 
 ## Usage
 
-Import 
+### Import 
 ```python
 from ImageRegression import train_model, upload_model, predict
 ```
 
-Train model
+### Train model
 - **dataset_id** 🤗 dataset id
 - **value_column_name** column name of the dataset. these are the prediction values
 - **test_split** test split of the train/test split
