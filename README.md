@@ -49,7 +49,7 @@ upload_model(model_id='sales-prediction1',
 Go to your 🤗 profile to find your uploaded model, it should look similar to [tonyassi/sales-prediction1](https://huggingface.co/tonyassi/sales-prediction1).
 
 ### Inference (Prediction)
-You can use your newly trained model for inference. There are two ways to do it: the predict function provided by this repo or using PyTorch itself.
+You can use your newly trained model for inference. There are two ways to do it (1) the predict function provided by this repo or (2) using PyTorch itself.
 
 ## Dataset
 
