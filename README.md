@@ -39,7 +39,7 @@ The trainer will save the checkpoints in the output_dir location. The "model.saf
 ### Upload Model
 This function will upload your model to the 🤗 Hub, which will be useful for inference.
 - **model_id** the name of the model id
-- **token** 🤗 token. go [here](https://huggingface.co/settings/tokens) to create a new token
+- **token** go [here](https://huggingface.co/settings/tokens) to create a new 🤗 token
 - **checkpoint_dir** checkpoint folder that will be uploaded
 ```python
 upload_model(model_id='sales-prediction1',
