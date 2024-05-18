@@ -1,6 +1,6 @@
 # Image Regression
 
-![diagram1](https://github.com/TonyAssi/ImageRegression/assets/42156881/2471b506-af0c-4f61-be13-3ca1ade0d1a4)
+![diagram2](https://github.com/TonyAssi/ImageRegression/assets/42156881/650a6b86-4d40-4bd0-b8e8-fa1e0e89388e)
 
 by [Tony Assi](https://www.tonyassi.com/)
 
