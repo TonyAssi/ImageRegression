@@ -4,7 +4,7 @@
 
 by [Tony Assi](https://www.tonyassi.com/)
 
-Image Regression model training and inference. Built with 🤗 and PyTorch. The trainer fine-tunes [google/vit-base-patch16-224](https://huggingface.co/google/vit-base-patch16-224) with a custom PyTorch model. You can upload the model to 🤗 Hub and use a simple function for inference.
+Image Regression model training and inference. The trainer fine-tunes [google/vit-base-patch16-224](https://huggingface.co/google/vit-base-patch16-224) with a custom PyTorch model. You can upload the model to 🤗 Hub and use a simple function for inference. Built with 🤗 and PyTorch.
 
 ## Installation
 ```bash
