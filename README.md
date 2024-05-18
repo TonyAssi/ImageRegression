@@ -1,5 +1,7 @@
 # Image Regression
 
+![diagram1](https://github.com/TonyAssi/ImageRegression/assets/42156881/2471b506-af0c-4f61-be13-3ca1ade0d1a4)
+
 by [Tony Assi](https://www.tonyassi.com/)
 
 Image Regression model training and inference. Built with 🤗 and PyTorch.
