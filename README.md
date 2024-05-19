@@ -59,7 +59,7 @@ Go to your 🤗 profile to find your uploaded model, it should look similar to [
 - **image_path** path to image
 ```python
 predict(repo_id='tonyassi/sales-prediction1',
-        image_path='image0.jpg')
+        image_path='image.jpg')
 ```
 The first time this function is called it'll download the safetensor model. Subsequent function calls will run faster.
 
