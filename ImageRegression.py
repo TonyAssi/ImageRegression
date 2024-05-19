@@ -10,6 +10,7 @@ from huggingface_hub import create_repo, HfApi
 import logging
 import os
 import json
+import shutil
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -60,7 +61,7 @@ def train_model(dataset_id, value_column_name, test_split, output_dir, num_train
 
     def preprocess(example):
         example['image'] = transform(example['image'])
-        example[value_column_name] = example[value_column_name] / max_value  # Normalize calues
+        example[value_column_name] = example[value_column_name] / max_value  # Normalize values
         return example
 
     # Apply the preprocessing with normalization
@@ -141,13 +142,48 @@ def train_model(dataset_id, value_column_name, test_split, output_dir, num_train
 
 
 def upload_model(model_id, token, checkpoint_dir):
+    # Create a new repo
     repo_url = create_repo(model_id, token=token, repo_type='model')
     print(repo_url)
     repo_id = "/".join(repo_url.split("/")[3:])
     print(repo_id)
 
-    api = HfApi()
+    # Copy README template to checkpoint folder
+    readme_path = checkpoint_dir + '/README.md'
+    shutil.copy('README-template.md',  readme_path)
 
+    # Read metadata.json
+    with open(checkpoint_dir + '/metadata.json', 'r') as f:
+        metadata = json.load(f)
+
+    # Read README-template.md file
+    with open(readme_path, 'r') as f:
+        readme_content = f.read()
+
+    # Replace values of README file
+    updated_readme_content = readme_content.replace('- \"-\"', f'- \"{metadata.get("dataset_id", "")}\"')
+    updated_readme_content = updated_readme_content.replace('- name: "-"', f'- name: \"{model_id}\"')
+    updated_readme_content = updated_readme_content.replace('# Title', f'# {model_id}')
+    updated_readme_content = updated_readme_content.replace("repo_id='-'", f"repo_id=\'{repo_id}\'")
+    updated_readme_content = updated_readme_content.replace("Dataset:", f"Dataset: {metadata.get('dataset_id', '')}")
+    updated_readme_content = updated_readme_content.replace("Value Column:", f"Value Column: \'{metadata.get('value_column_name', '')}\'")
+    updated_readme_content = updated_readme_content.replace("Train Test Split:", f"Train Test Split: {metadata.get('test_split', '')}")
+    updated_readme_content = updated_readme_content.replace("Epochs:", f"Epochs: {metadata.get('num_train_epochs', '')}")
+    updated_readme_content = updated_readme_content.replace("Learning Rate:", f"Learning Rate: {metadata.get('learning_rate', '')}")
+    updated_readme_content = updated_readme_content.replace("dataset_id='-'", f"dataset_id=\'{metadata.get('dataset_id', '')}\'")
+    updated_readme_content = updated_readme_content.replace("value_column_name='-'", f"value_column_name=\'{metadata.get('value_column_name', '')}\'")
+    updated_readme_content = updated_readme_content.replace("test_split=-", f"test_split={metadata.get('test_split', '')}")
+    updated_readme_content = updated_readme_content.replace("num_train_epochs=-", f"num_train_epochs={metadata.get('num_train_epochs', '')}")
+    updated_readme_content = updated_readme_content.replace("learning_rate=-", f"learning_rate={metadata.get('learning_rate', '')}")
+    updated_readme_content = updated_readme_content.replace("model_id='-'", f"model_id=\'{model_id}\'")
+
+
+    # Write the updated content back to README.md file
+    with open(readme_path, 'w') as f:
+        f.write(updated_readme_content)
+
+    # Upload files to hub
+    api = HfApi()
     api.upload_folder(
         folder_path=checkpoint_dir,
         repo_id=repo_id,
@@ -156,6 +192,7 @@ def upload_model(model_id, token, checkpoint_dir):
     )
 
 def predict(repo_id, image_path):
+    # If not already downloaded, download model and metadata
     if(not os.path.exists('./model.safetensors')):
         api = HfApi()
         api.hf_hub_download(repo_id=repo_id, local_dir='.', filename="model.safetensors")
