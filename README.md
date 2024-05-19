@@ -49,10 +49,14 @@ upload_model(model_id='sales-prediction1',
 Go to your 🤗 profile to find your uploaded model, it should look similar to [tonyassi/sales-prediction1](https://huggingface.co/tonyassi/sales-prediction1).
 
 ### Inference (Prediction)
-You can use your newly trained model for inference. There are two ways to do it (1) the predict function provided by this repo or (2) using PyTorch itself.
+- **repo_id** 🤗 repo id of the model
+- **image_path** path to image
 ```python
-predict(repo_id='tonyassi/sales-prediction1', image_path='image0.jpg')
+predict(repo_id='tonyassi/sales-prediction1',
+        image_path='image0.jpg')
 ```
+The first time this function is called it'll download the safetensor model. Subsequent function calls will run faster because it's not downloading the model.
+
 ## Dataset
 
 The model trainer takes a 🤗 dataset id as input so your dataset must be uploaded to 🤗. It should have a column of images and a column of values (floats or ints). Check out [Create an image dataset](https://huggingface.co/docs/datasets/en/image_dataset) if you need help creating a 🤗 dataset. Your dataset should look like [tonyassi/sales1](https://huggingface.co/datasets/tonyassi/sales1) (the values column can be named whatever you'd like).
