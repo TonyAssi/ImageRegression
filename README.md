@@ -50,7 +50,9 @@ Go to your 🤗 profile to find your uploaded model, it should look similar to [
 
 ### Inference (Prediction)
 You can use your newly trained model for inference. There are two ways to do it (1) the predict function provided by this repo or (2) using PyTorch itself.
-
+```python
+predict(repo_id='tonyassi/sales-prediction1', image_path='image0.jpg')
+```
 ## Dataset
 
 The model trainer takes a 🤗 dataset id as input so your dataset must be uploaded to 🤗. It should have a column of images and a column of values (floats or ints). Check out [Create an image dataset](https://huggingface.co/docs/datasets/en/image_dataset) if you need help creating a 🤗 dataset. Your dataset should look like [tonyassi/sales1](https://huggingface.co/datasets/tonyassi/sales1) (the values column can be named whatever you'd like).
