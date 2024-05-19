@@ -40,7 +40,7 @@ train_model(dataset_id='tonyassi/sales1',
             learning_rate=1e-4)
 
 ```
-The trainer will save the checkpoints in the output_dir location. The "model.safetensors" are the trained weights you'll use for inference (predicton).
+The trainer will save the checkpoints in the output_dir location. The model.safetensors are the trained weights you'll use for inference (predicton).
 
 ### Upload Model
 This function will upload your model to the 🤗 Hub, which will be useful for inference.
